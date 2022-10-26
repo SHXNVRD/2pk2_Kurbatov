@@ -13,6 +13,7 @@
                 Console.WriteLine($"Значение функции:{y}\t Значение аргумента:{x}");
             }
             Console.ReadKey();
+
         }
     }
 }
