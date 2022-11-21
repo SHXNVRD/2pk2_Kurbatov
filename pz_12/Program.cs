@@ -1,6 +1,4 @@
-﻿using System.Security.Cryptography.X509Certificates;
-
-namespace pz_12
+﻿namespace pz_12
 {
     
     internal class Program

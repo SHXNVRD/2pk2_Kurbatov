@@ -33,7 +33,7 @@
                     }
                     else
                     {
-                        action = value[0] - value[2] - value[4];
+                        action = value[0] - value[2] - value[4];    
                         Console.WriteLine(action);
                     }
                     break;
