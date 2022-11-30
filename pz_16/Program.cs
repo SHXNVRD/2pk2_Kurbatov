@@ -22,10 +22,10 @@
                 Console.WriteLine(text[i]);
             }
         }
-
+        
         static void Main(string[] args)
         {
-            string path = "";
+            string path = "Введите путь";
             AnalyzOfText(path);
         }
     }
