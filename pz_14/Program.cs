@@ -34,6 +34,7 @@
         static void PrintNumbers(int a, int b)
         {
             int number = a;
+
             if (a > b)
             {
                 PrintNumbers(--a, b);

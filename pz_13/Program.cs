@@ -25,10 +25,6 @@ namespace pz_13
         {
             string text = Console.ReadLine();
             Console.WriteLine(GetPalindrom(text));
-
-            //char[] ReversePalindrom = new char[Palindrom.Length];
-            //Array.Copy(Palindrom, 0, ReversePalindrom, 0, Palindrom.Length);
-            //Array.Reverse(ReversePalindrom);
         }
     }
 }
