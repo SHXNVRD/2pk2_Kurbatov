@@ -12,7 +12,6 @@
             for (char chr = 'P'; chr <= 'U'; chr++) Console.Write(chr);
             Console.WriteLine();
 
-
             Console.WriteLine("Задание 3");
             char chr1 = '#';
 
