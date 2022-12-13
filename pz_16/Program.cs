@@ -33,13 +33,17 @@ namespace pz_16
 
             //Считываем содержимое файла в массив строк
             string[] text = File.ReadAllLines(path);
-            FileInfo f1 = new FileInfo(path);
 
+            //Создание директории
+            FileInfo f1 = new FileInfo(path);
             string directoryPath = f1.DirectoryName + @"\new";
             Directory.CreateDirectory(directoryPath);
 
+            //Создание файла f2
             string f2Path = directoryPath + @"\f2.txt";
             FileInfo f2 = new FileInfo(f2Path);
+            
+            //Запись содержимого файла f1 в файл f2x
             using (StreamWriter writer = new StreamWriter(f2Path))
             {
                 foreach (string line in text)
@@ -47,13 +51,12 @@ namespace pz_16
                     writer.WriteLine(line);
                 }
             }
-
         }
 
         static void Main(string[] args)
         {
-            //Console.WriteLine("Введите путь");
-            string path = @"D:\f1.txt";
+            Console.WriteLine("Введите путь");
+            string path = Console.ReadLine();
             NameOfMetod(path);
         }
     }
