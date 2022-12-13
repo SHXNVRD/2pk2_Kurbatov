@@ -1,4 +1,6 @@
-﻿namespace pz_16
+﻿using System.IO;
+
+namespace pz_16
 {
     internal class Program
     {
@@ -22,11 +24,37 @@
                 Console.WriteLine(text[i]);
             }
         }
-        
+
+        private static void NameOfMetod(string path)
+        {
+            //Проверяем существование файла
+            if (!File.Exists(path))
+                return;
+
+            //Считываем содержимое файла в массив строк
+            string[] text = File.ReadAllLines(path);
+            FileInfo f1 = new FileInfo(path);
+
+            string directoryPath = f1.DirectoryName + @"\new";
+            Directory.CreateDirectory(directoryPath);
+
+            string f2Path = directoryPath + @"\f2.txt";
+            FileInfo f2 = new FileInfo(f2Path);
+            using (StreamWriter writer = new StreamWriter(f2Path))
+            {
+                foreach (string line in text)
+                {
+                    writer.WriteLine(line);
+                }
+            }
+
+        }
+
         static void Main(string[] args)
         {
-            string path = "Введите путь";
-            AnalyzOfText(path);
+            //Console.WriteLine("Введите путь");
+            string path = @"D:\f1.txt";
+            NameOfMetod(path);
         }
     }
 }
