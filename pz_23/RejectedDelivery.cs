@@ -21,6 +21,5 @@ namespace pz_23
             Reason = "Пичина не указана";
         }
         public override void GetDeliveryInfo() => Console.WriteLine($"ID: {ID}\nСумма: {Summ}\nВремя заказа: {RequestTime}\nАдресс: {Adr}\nПричина отклонения: {Reason}");
-
     }
 }

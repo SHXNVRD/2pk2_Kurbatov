@@ -10,8 +10,8 @@ namespace pz_21
     internal class DeliveryRequest
     {
         private DateTime dateFrom = new DateTime(2022,01,01);
-        static int allSumm;
-        static int countRequest;
+        private static int allSumm;
+        private static int countRequest;
 
         private int id;
         public int ID

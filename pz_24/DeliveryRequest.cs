@@ -1,4 +1,5 @@
-﻿using System;
+﻿using pz_24;
+using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
@@ -7,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace pz_21
 {
-    internal class DeliveryRequest
+    internal class DeliveryRequest : IClonable
     {
-        private DateTime dateFrom = new DateTime(2022, 01, 01); // нижняя граница даты заказа 
+        private DateTime dateFrom = new DateTime(2022, 01, 01); // нижняя граница даты заказа
         private static int allSumm;
         private static int countRequest = 0;
 
@@ -17,6 +18,7 @@ namespace pz_21
         public int ID
         {
             get { return id; }
+
             set
             {
                 if (value != 0)
@@ -25,6 +27,7 @@ namespace pz_21
                     Console.WriteLine("Значение ID должно быть присвоено!");
             }
         }
+
         private int summ;
         public int Summ
         {
@@ -38,6 +41,7 @@ namespace pz_21
                     Console.WriteLine("Неверная сумма!");
             }
         }
+
         public string Adr { get; set; }
 
         private DateTime requestTime;
@@ -69,7 +73,6 @@ namespace pz_21
             allSumm += Summ;
             ++countRequest;
         }
-
         public DeliveryRequest(DeliveryRequest deliveryRequest)
         {
             ID = deliveryRequest.ID;
@@ -78,6 +81,10 @@ namespace pz_21
             RequestTime = deliveryRequest.RequestTime;
             allSumm += Summ;
             ++countRequest;
+        }
+        public object Clone()
+        {
+            return MemberwiseClone();
         }
         public virtual void GetDeliveryInfo() => Console.WriteLine($"ID: {ID}\nСумма: {Summ}\nВремя заказа: {RequestTime}\nАдресс: {Adr}");
         public static void GetCountRequest() => Console.WriteLine($"Общее количество заказов: {countRequest}");
