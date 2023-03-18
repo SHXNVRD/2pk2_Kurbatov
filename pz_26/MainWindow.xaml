@@ -30,6 +30,32 @@
                 </MenuItem>
                 <MenuItem Header="About" Click="AboutButton_Click"/>
             </Menu>
+            <StatusBar DockPanel.Dock="Bottom">
+                <StatusBar.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="100" />
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                    </ItemsPanelTemplate>
+                </StatusBar.ItemsPanel>
+                <StatusBarItem Grid.Column="0">
+                    <TextBlock Name="rtbCursorPosition" />
+                </StatusBarItem>
+                <Separator Grid.Column="1" />
+                <StatusBarItem Grid.Column="2">
+                    <TextBlock Text="C:/path"/>
+                </StatusBarItem>
+                <Separator Grid.Column="3" />
+                <StatusBarItem Grid.Column="4">
+
+                </StatusBarItem>
+            </StatusBar>
             <ToolBarTray DockPanel.Dock="Top">
                 <ToolBar>
                 <ToggleButton Name="italicButton" Height="25" Command="EditingCommands.ToggleItalic" ToolTip="Italics">
@@ -56,32 +82,7 @@
                     </Style>
                 </RichTextBox.Resources>
             </RichTextBox>
-            <!--<StatusBar DockPanel.Dock="Bottom">
-                <StatusBar.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="100" />
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="100" />
-                            </Grid.ColumnDefinitions>
-                        </Grid>
-                    </ItemsPanelTemplate>
-                </StatusBar.ItemsPanel>
-                <StatusBarItem Grid.Column="0">
-                    <TextBlock Name="rtbCursorPosition" />
-                </StatusBarItem>
-                <Separator Grid.Column="1" />
-                <StatusBarItem Grid.Column="2">
-                    <TextBlock Text="C:/path"/>
-                </StatusBarItem>
-                <Separator Grid.Column="3" />
-                <StatusBarItem Grid.Column="4">
-
-                </StatusBarItem>
-            </StatusBar>-->
+            
         </DockPanel>
     </Grid>
 </Window>
