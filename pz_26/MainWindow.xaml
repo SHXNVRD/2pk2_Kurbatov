@@ -17,16 +17,32 @@
         <DockPanel>
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="_File">
-                    <MenuItem Header="_New" Command="ApplicationCommands.New"/>
-                    <MenuItem Header="_Open" Command="ApplicationCommands.Open"/>
-                    <MenuItem Header="_Save" Command="ApplicationCommands.Save">
+                    <MenuItem Header="_New" Command="ApplicationCommands.New">
                         <MenuItem.Icon>
-                            <Image Source="icons\savetheapplication_guardar_2958.png"/>
+                            <Image Source="C:\Users\Rodion\source\repos\Programm\pz_26\icons\new-file.png"/>
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem Header="_Delete" Command="ApplicationCommands.Delete"/>
+                    <MenuItem Header="_Open" Command="ApplicationCommands.Open">
+                        <MenuItem.Icon>
+                            <Image Source="C:\Users\Rodion\source\repos\Programm\pz_26\icons\folder.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Save" Command="ApplicationCommands.Save">
+                        <MenuItem.Icon>
+                            <Image Source="C:\Users\Rodion\source\repos\Programm\pz_26\icons\floppy-disk.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Delete" Command="ApplicationCommands.Delete">
+                        <MenuItem.Icon>
+                            <Image Source="C:\Users\Rodion\source\repos\Programm\pz_26\icons\delete.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
                     <Separator/>
-                    <MenuItem Header="_Exit" Command="local:CustomCommands.Exit"/>
+                    <MenuItem Header="_Exit" Command="local:CustomCommands.Exit">
+                        <MenuItem.Icon>
+                            <Image Source="C:\Users\Rodion\source\repos\Programm\pz_26\icons\exit.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
                 </MenuItem>
                 <MenuItem Header="About" Click="AboutButton_Click"/>
             </Menu>
@@ -58,24 +74,24 @@
             </StatusBar>
             <ToolBarTray DockPanel.Dock="Top">
                 <ToolBar>
-                <ToggleButton Name="italicButton" Height="25" Command="EditingCommands.ToggleItalic" ToolTip="Italics">
+                <ToggleButton Name="italicButton" Height="25" Command="EditingCommands.ToggleItalic" ToolTip="Курсив">
                     <Image Source="icons\italic_em_emphasis_format_editor_tool_icon_145968.png"/>
                 </ToggleButton>
-                <ToggleButton  Name="boldButton" Command="EditingCommands.ToggleBold" Height="25" ToolTip="Bold">
+                <ToggleButton  Name="boldButton" Command="EditingCommands.ToggleBold" Height="25" ToolTip="Полужирный">
                     <Image Source="icons\bold_format_editor_tool_icon_146015.png"/>
                 </ToggleButton>
-                <ToggleButton Name="underliningButton" Command="EditingCommands.ToggleUnderline" Height="25" ToolTip="underlining">
+                <ToggleButton Name="underliningButton" Command="EditingCommands.ToggleUnderline" Height="25" ToolTip="Подчёркивание">
                     <Image Source="icons\underline_format_editor_tool_icon_145920.png"/>
                 </ToggleButton>
                 <Separator/>
-                <ComboBox Name="cmbFontFamily" Width="150" SelectionChanged="CmbFontFamily_SelectionChanged" />
-                <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="CmbFontSize_TextChanged" />
+                <ComboBox Name="cmbFontFamily" Width="150" SelectionChanged="CmbFontFamily_SelectionChanged"/>
+                <ComboBox Name="cmbFontSize" Width="50" IsEditable="True" TextBoxBase.TextChanged="CmbFontSize_TextChanged"/>
                 </ToolBar>
             </ToolBarTray>
             <ListBox DockPanel.Dock="Left" Width="200">
                 
             </ListBox>
-            <RichTextBox DockPanel.Dock="Right" Name="rtbEditor" AcceptsReturn="True" SelectionChanged="rtbEditor_SelectionChanged" TextChanged="textEditor_TextChanged">
+            <RichTextBox DockPanel.Dock="Right" Name="rtbEditor" SpellCheck.IsEnabled="true" AcceptsReturn="True" SelectionChanged="rtbEditor_SelectionChanged" TextChanged="textEditor_TextChanged">
                 <RichTextBox.Resources>
                     <Style TargetType="{x:Type Paragraph}">
                         <Setter Property="Margin" Value="0" />

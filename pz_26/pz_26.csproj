@@ -10,19 +10,19 @@
   <ItemGroup>
     <None Remove="icons\bold_format_editor_tool_icon_146015.png" />
     <None Remove="icons\italic_em_emphasis_format_editor_tool_icon_145968.png" />
-    <None Remove="icons\savetheapplication_guardar_2958.png" />
     <None Remove="icons\success_win_done_mark_icon_145928.png" />
-    <None Remove="icons\trash_remove_icon_145922.png" />
     <None Remove="icons\underline_format_editor_tool_icon_145920.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="icons\bold_format_editor_tool_icon_146015.png" />
     <Resource Include="icons\italic_em_emphasis_format_editor_tool_icon_145968.png" />
-    <Resource Include="icons\savetheapplication_guardar_2958.png" />
     <Resource Include="icons\success_win_done_mark_icon_145928.png" />
-    <Resource Include="icons\trash_remove_icon_145922.png" />
     <Resource Include="icons\underline_format_editor_tool_icon_145920.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="data\" />
   </ItemGroup>
 
 </Project>

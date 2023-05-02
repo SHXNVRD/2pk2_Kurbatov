@@ -17,23 +17,26 @@ using System.Windows.Shapes;
 
 namespace pz_26
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
             cmbFontFamily.ItemsSource = Fonts.SystemFontFamilies.OrderBy(f => f.Source);
-            cmbFontSize.ItemsSource = new List<double>() { 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72};
+            cmbFontSize.ItemsSource = new List<uint>() { 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72};
         }
+    
+
+        //public static string GetContent()
+        //{
+            
+        //}
 
         private void textEditor_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //int row = textEditor.GetLineIndexFromCharacterIndex(textEditor.CaretIndex);
-            //int col = textEditor.CaretIndex - textEditor.GetCharacterIndexFromLineIndex(row);
-            //labelCursorPosition.Text = "Line " + (row + 1) + ", Char " + (col + 1);
+            //int row = rtbEditor.GetLineIndexFromCharacterIndex(textEditor.CaretIndex);
+            //int col = rtbEditor.CaretIndex - textEditor.GetCharacterIndexFromLineIndex(row);
+            //rtbCursorPosition.Text = "Line " + (row + 1) + ", Char " + (col + 1);
         }
 
         //textEditor Commands
@@ -44,7 +47,9 @@ namespace pz_26
 
         private void NewCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            MessageBox.Show("The New command was invoked");
+            //FileWork.CreateFile(@"C:\Users\Rodion\source\repos\Programm\pz_26\data\test.txt");
+
+            MessageBox.Show("Данная функция находится в стадии разработки", "Attention", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void OpenCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -54,6 +59,9 @@ namespace pz_26
 
         private void OpenCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
+            //FileWork.OpenFile(@"C:\Users\Rodion\source\repos\Programm\pz_26\data\test.txt");
+
+
             OpenFileDialog dlg = new OpenFileDialog();
             dlg.Filter = "Rich Text Format (*.rtf)|*.rtf|All files (*.*)|*.*";
             if (dlg.ShowDialog() == true)
@@ -71,6 +79,9 @@ namespace pz_26
 
         private void SaveCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
+            //TextRange textRange = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
+            //FileWork.SaveFile(@"C:\Users\Rodion\source\repos\Programm\pz_26\data\test.txt", textRange.Text);
+
             SaveFileDialog dlg = new SaveFileDialog();
             dlg.Filter = "Rich Text Format (*.rtf)|*.rtf|All files (*.*)|*.*";
             if (dlg.ShowDialog() == true)
@@ -87,7 +98,17 @@ namespace pz_26
 
         private void DeleteCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            MessageBox.Show("The New command was invoked");
+            MessageBoxResult result = MessageBox.Show("Удалить этот файл", "Delete file", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    FileWork.DeleteFile(@"C:\Users\Rodion\source\repos\Programm\pz_26\data\test.txt");
+                    break;
+                case MessageBoxResult.No:
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void ExitCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -97,13 +118,23 @@ namespace pz_26
 
         private void ExitCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            using (System.IO.StreamWriter writer = new System.IO.StreamWriter("log.txt", true))
+            MessageBoxResult result = MessageBox.Show("Вы действительно хотите выйти?", "Выход", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No);
+            switch (result)
             {
-                writer.WriteLine("Выход из приложения: " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToLongTimeString());
-                writer.Flush();
-            }
+                case MessageBoxResult.Yes:
+                    using (StreamWriter writer = new StreamWriter("log.txt", true))
+                    {
+                        writer.WriteLine("Выход из приложения: " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToLongTimeString());
+                        writer.Flush();
+                    }
 
-            this.Close();
+                    this.Close();
+                    break;
+                case MessageBoxResult.No:
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void CmbFontFamily_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -135,7 +166,7 @@ namespace pz_26
 
         private void AboutButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("TextEditor V1.0-64x", "About TextEditor");
+            MessageBox.Show("TextEditor b1.0-64x \nКвас?" , "About TextEditor", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }
