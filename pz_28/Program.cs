@@ -6,16 +6,17 @@ namespace pz_28
     {
         static void Main(string[] args)
         {
-            for (int i = 0; i <= 30; i++)
+            Client.Limit += delegate (string mes)
             {
-                string name = "Tom" + i;
-                Client client = new Client(name);
+                Console.WriteLine(mes);
+            };
 
-                client.Limit += delegate (string mes)
-                {
-                    Console.WriteLine(mes);
-                };
-            }            
+            Client client1 = new Client("Tom");
+            Console.WriteLine(client1);
+            Client client2 = new Client("Tom2");
+            Console.WriteLine(client1);
+            Client client3 = new Client("Tom3");
+            Console.WriteLine(client1);
         }
     }
 }

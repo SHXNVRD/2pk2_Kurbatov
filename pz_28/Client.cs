@@ -11,7 +11,7 @@ namespace pz_28
     internal class Client
     {
         public delegate void Message(string message);
-        public event Message? Limit;
+        public static event Message? Limit;
 
         private static uint count = 0;
         public string Name { get; set; }
@@ -21,9 +21,12 @@ namespace pz_28
             Name = name;
             count++;
 
-            if (count == 1) Limit?.Invoke("Ограничение мест");
+            if (count == 2) Limit?.Invoke("Ограничение мест!");
         }
 
-        
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
